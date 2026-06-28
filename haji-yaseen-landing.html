@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haji Yaseen & Sons Electronics — Enterprise ERP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0A1628;
+      --navy2:   #0F2040;
+      --blue:    #1E40AF;
+      --blue2:   #2563EB;
+      --electric:#3B82F6;
+      --gold:    #F59E0B;
+      --gold2:   #FCD34D;
+      --white:   #FFFFFF;
+      --gray50:  #F8FAFC;
+      --gray100: #F1F5F9;
+      --gray300: #CBD5E1;
+      --gray400: #94A3B8;
+      --gray500: #64748B;
+      --gray700: #334155;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+      background: rgba(10,22,40,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(59,130,246,0.15);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, #3B82F6, #1E40AF);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 0 16px rgba(59,130,246,0.5);
+    }
+    .nav-logo-text { color: var(--white); font-weight: 800; font-size: 15px; line-height: 1.2; }
+    .nav-logo-text span { color: var(--gold); }
+    .nav-logo-sub { color: var(--gray400); font-size: 10px; font-weight: 400; letter-spacing: 0.08em; }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a { color: var(--gray300); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      display: flex; align-items: center; gap: 12px;
+    }
+    .btn-outline-nav {
+      padding: 8px 20px; border: 1px solid rgba(59,130,246,0.5); border-radius: 8px;
+      color: var(--electric); font-size: 13px; font-weight: 600; background: transparent;
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+    }
+    .btn-outline-nav:hover { background: rgba(59,130,246,0.1); border-color: var(--electric); }
+    .btn-primary-nav {
+      padding: 8px 20px; border-radius: 8px;
+      background: linear-gradient(135deg, #3B82F6, #1E40AF);
+      color: var(--white); font-size: 13px; font-weight: 600; border: none;
+      cursor: pointer; text-decoration: none; transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(59,130,246,0.35);
+    }
+    .btn-primary-nav:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(59,130,246,0.5); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; align-items: center;
+      padding: 70px 5% 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .hero-glow1 {
+      position: absolute; top: -100px; left: -100px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(30,64,175,0.3) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .hero-glow2 {
+      position: absolute; bottom: -200px; right: -100px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,158,11,0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+      width: 100%; max-width: 1300px; margin: 0 auto;
+      padding: 80px 0 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 100px; padding: 6px 14px; margin-bottom: 24px;
+      font-size: 12px; font-weight: 600; color: var(--electric);
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .hero-badge-dot {
+      width: 7px; height: 7px; background: var(--electric);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; transform: scale(1); }
+      50% { opacity:0.5; transform: scale(0.8); }
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+    .hero-title .accent { color: var(--gold); }
+    .hero-title .blue-line {
+      display: block;
+      background: linear-gradient(90deg, #3B82F6, #60A5FA);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 16px; font-weight: 400; color: var(--gray400);
+      line-height: 1.7; margin-bottom: 36px; max-width: 480px;
+    }
+
+    .hero-btns { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .btn-hero-primary {
+      padding: 14px 30px;
+      background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+      color: #fff; font-size: 15px; font-weight: 700; border: none; border-radius: 12px;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 8px 24px rgba(59,130,246,0.4);
+      transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(59,130,246,0.5); }
+
+    .btn-hero-ghost {
+      padding: 14px 30px;
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;
+      color: var(--white); font-size: 15px; font-weight: 600; background: transparent;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.25s; display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-hero-ghost:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.35); }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 28px; color: var(--gray400); font-size: 13px;
+    }
+    .hero-trust-avatars {
+      display: flex;
+    }
+    .hero-trust-avatar {
+      width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--navy);
+      background: linear-gradient(135deg, #3B82F6, #1E40AF);
+      margin-left: -8px; display: flex; align-items: center; justify-content: center;
+      font-size: 10px; color: #fff; font-weight: 700;
+    }
+    .hero-trust-avatar:first-child { margin-left: 0; }
+
+    /* ── HERO CARD ── */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card-main {
+      background: rgba(15,32,64,0.9);
+      border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 20px;
+      padding: 24px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.1);
+      position: relative;
+      animation: floatCard 4s ease-in-out infinite;
+    }
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .card-header-title { color: var(--gray300); font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+    .card-status {
+      display: flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 100px; padding: 3px 10px;
+      color: #4ade80; font-size: 11px; font-weight: 600;
+    }
+    .card-status-dot { width: 6px; height: 6px; background: #4ade80; border-radius: 50%; animation: pulse 1.5s infinite; }
+
+    .card-customer {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+      background: rgba(59,130,246,0.06); border-radius: 12px; padding: 14px;
+    }
+    .card-avatar {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: linear-gradient(135deg, #3B82F6, #1E40AF);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .card-name { color: var(--white); font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+    .card-cnic { color: var(--gray400); font-size: 11px; font-family: monospace; }
+
+    .card-product {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+      background: rgba(245,158,11,0.06); border-radius: 12px; padding: 14px; border: 1px solid rgba(245,158,11,0.1);
+    }
+    .card-product-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: rgba(245,158,11,0.15);
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .card-product-name { color: var(--white); font-weight: 700; font-size: 14px; }
+    .card-product-model { color: var(--gray400); font-size: 11px; }
+
+    .card-amounts {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px;
+    }
+    .card-amount-box {
+      background: rgba(255,255,255,0.04); border-radius: 10px; padding: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .card-amount-label { color: var(--gray500); font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .card-amount-value { color: var(--white); font-weight: 700; font-size: 15px; }
+    .card-amount-value.green { color: #4ade80; }
+    .card-amount-value.gold { color: var(--gold); }
+
+    .card-progress-label {
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+    }
+    .card-progress-label span:first-child { color: var(--gray400); font-size: 11px; }
+    .card-progress-label span:last-child { color: var(--electric); font-size: 11px; font-weight: 600; }
+    .progress-bar-bg {
+      height: 6px; background: rgba(255,255,255,0.08); border-radius: 100px; overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #3B82F6, #60A5FA);
+      border-radius: 100px;
+      width: 62%;
+      animation: progressGrow 2s ease-out both;
+    }
+    @keyframes progressGrow { from { width: 0; } }
+
+    /* Floating mini cards */
+    .float-mini {
+      position: absolute;
+      background: rgba(15,32,64,0.95);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 14px; padding: 12px 16px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+    .float-mini-1 {
+      top: -20px; right: -30px;
+      animation: floatCard 3.5s 0.5s ease-in-out infinite;
+    }
+    .float-mini-2 {
+      bottom: 40px; left: -30px;
+      animation: floatCard 4.5s 1s ease-in-out infinite;
+    }
+    .mini-label { color: var(--gray400); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .mini-value { color: var(--white); font-weight: 800; font-size: 20px; }
+    .mini-value.gold { color: var(--gold); }
+    .mini-sub { color: #4ade80; font-size: 10px; font-weight: 500; margin-top: 2px; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--navy2);
+      border-top: 1px solid rgba(59,130,246,0.1);
+      border-bottom: 1px solid rgba(59,130,246,0.1);
+      padding: 32px 5%;
+    }
+    .stats-inner {
+      max-width: 1300px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center; padding: 12px 20px;
+      border-right: 1px solid rgba(59,130,246,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 38px; font-weight: 900; color: var(--white); line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, #94A3B8 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-num .stat-accent { color: var(--gold); -webkit-text-fill-color: var(--gold); }
+    .stat-label { color: var(--gray400); font-size: 13px; font-weight: 500; margin-top: 4px; }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 100px 5%;
+    }
+    .section-inner {
+      max-width: 1300px; margin: 0 auto;
+    }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 100px; padding: 5px 14px;
+      font-size: 11px; font-weight: 700; color: var(--electric);
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: clamp(28px, 3vw, 42px); font-weight: 900;
+      color: var(--navy); line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .section-title.light { color: var(--white); }
+    .section-sub {
+      font-size: 16px; color: var(--gray500); line-height: 1.7;
+      max-width: 600px; margin-bottom: 60px;
+    }
+    .section-sub.light { color: var(--gray400); }
+
+    /* ── MODULES GRID ── */
+    .modules-section { background: var(--gray50); }
+
+    .modules-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+
+    .module-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 18px; padding: 28px;
+      transition: all 0.3s; position: relative; overflow: hidden;
+      cursor: default;
+    }
+    .module-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #3B82F6, #1E40AF);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .module-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(0,0,0,0.1); border-color: rgba(59,130,246,0.2); }
+    .module-card:hover::before { transform: scaleX(1); }
+
+    .module-icon {
+      width: 50px; height: 50px; border-radius: 14px; margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center; font-size: 22px;
+    }
+    .module-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .module-desc { font-size: 13px; color: var(--gray500); line-height: 1.6; }
+    .module-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 14px; }
+    .module-tag {
+      background: var(--gray100); border-radius: 6px; padding: 3px 8px;
+      font-size: 10px; font-weight: 600; color: var(--gray500); text-transform: uppercase; letter-spacing: 0.04em;
+    }
+
+    /* ── AI SECTION ── */
+    .ai-section { background: var(--navy); }
+
+    .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+    .ai-features { display: flex; flex-direction: column; gap: 20px; }
+
+    .ai-feature {
+      display: flex; gap: 16px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px; padding: 20px;
+      transition: all 0.3s;
+    }
+    .ai-feature:hover { background: rgba(59,130,246,0.08); border-color: rgba(59,130,246,0.25); }
+    .ai-feature-icon {
+      width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .ai-feature-title { color: var(--white); font-weight: 700; font-size: 15px; margin-bottom: 4px; }
+    .ai-feature-desc { color: var(--gray400); font-size: 13px; line-height: 1.6; }
+
+    .ai-visual {
+      background: rgba(15,32,64,0.6); border: 1px solid rgba(59,130,246,0.2);
+      border-radius: 20px; padding: 28px;
+    }
+    .ai-visual-title { color: var(--gray400); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+
+    .risk-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .risk-item:last-child { border-bottom: none; }
+    .risk-name { color: var(--white); font-size: 14px; font-weight: 500; }
+    .risk-bar-container { flex: 1; margin: 0 16px; height: 6px; background: rgba(255,255,255,0.08); border-radius: 100px; overflow: hidden; }
+    .risk-bar { height: 100%; border-radius: 100px; }
+    .risk-bar.low  { background: #4ade80; }
+    .risk-bar.med  { background: var(--gold); }
+    .risk-bar.high { background: #f87171; }
+    .risk-score { font-size: 13px; font-weight: 700; }
+    .risk-score.low  { color: #4ade80; }
+    .risk-score.med  { color: var(--gold); }
+    .risk-score.high { color: #f87171; }
+
+    .ai-alert {
+      margin-top: 20px;
+      background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 12px; padding: 14px;
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .ai-alert-icon { font-size: 18px; flex-shrink: 0; }
+    .ai-alert-text { color: var(--gold2); font-size: 13px; line-height: 1.5; }
+    .ai-alert-bold { font-weight: 700; }
+
+    /* ── HOW IT WORKS ── */
+    .how-section { background: var(--white); }
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+    .steps-grid::before {
+      content: '';
+      position: absolute; top: 36px; left: 10%; right: 10%; height: 2px;
+      background: linear-gradient(90deg, #3B82F6 0%, #1E40AF 100%);
+      z-index: 0;
+    }
+    .step-item { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+    .step-number {
+      width: 72px; height: 72px; border-radius: 50%; margin: 0 auto 20px;
+      background: linear-gradient(135deg, #3B82F6, #1E40AF);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; font-weight: 900; color: var(--white);
+      box-shadow: 0 8px 24px rgba(59,130,246,0.35);
+    }
+    .step-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--gray500); line-height: 1.6; }
+
+    /* ── TESTIMONIALS / ROLES ── */
+    .roles-section { background: var(--gray50); }
+    .roles-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .role-card {
+      background: var(--white); border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 16px; padding: 20px; text-align: center;
+      transition: all 0.25s;
+    }
+    .role-card:hover { border-color: rgba(59,130,246,0.3); box-shadow: 0 8px 24px rgba(59,130,246,0.1); }
+    .role-icon { font-size: 28px; margin-bottom: 10px; }
+    .role-name { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .role-perm { font-size: 11px; color: var(--gray400); }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0A1628 0%, #0F2040 50%, #1E40AF 100%);
+      text-align: center; padding: 100px 5%;
+      position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 100px; padding: 6px 16px; margin-bottom: 24px;
+      color: var(--gold); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .cta-title {
+      font-size: clamp(32px, 4vw, 52px); font-weight: 900; color: var(--white);
+      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .cta-sub { font-size: 16px; color: var(--gray400); margin-bottom: 40px; }
+    .cta-btns { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-cta-primary {
+      padding: 16px 36px; background: linear-gradient(135deg, #F59E0B, #D97706);
+      color: #000; font-weight: 800; font-size: 15px; border: none; border-radius: 12px;
+      cursor: pointer; text-decoration: none; transition: all 0.25s;
+      box-shadow: 0 8px 24px rgba(245,158,11,0.4);
+    }
+    .btn-cta-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(245,158,11,0.5); }
+    .btn-cta-ghost {
+      padding: 16px 36px; border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;
+      color: var(--white); font-weight: 600; font-size: 15px; background: transparent;
+      cursor: pointer; text-decoration: none; transition: all 0.25s;
+    }
+    .btn-cta-ghost:hover { background: rgba(255,255,255,0.08); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060E1A;
+      padding: 48px 5% 28px;
+      border-top: 1px solid rgba(59,130,246,0.1);
+    }
+    .footer-inner {
+      max-width: 1300px; margin: 0 auto;
+    }
+    .footer-top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;
+    }
+    .footer-brand-name { color: var(--white); font-weight: 800; font-size: 16px; margin-bottom: 4px; }
+    .footer-brand-name span { color: var(--gold); }
+    .footer-brand-tagline { color: var(--gray500); font-size: 13px; line-height: 1.6; max-width: 280px; margin-top: 8px; }
+    .footer-col-title { color: var(--gray300); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { color: var(--gray500); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--electric); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { color: var(--gray500); font-size: 12px; }
+    .footer-copy span { color: var(--gray400); }
+    .footer-links-bottom { display: flex; gap: 20px; }
+    .footer-links-bottom a { color: var(--gray500); font-size: 12px; text-decoration: none; }
+    .footer-links-bottom a:hover { color: var(--electric); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; padding: 60px 0 40px; }
+      .hero-visual { display: none; }
+      .modules-grid { grid-template-columns: 1fr 1fr; }
+      .ai-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .steps-grid::before { display: none; }
+      .roles-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+    }
+    @media (max-width: 640px) {
+      .nav-links, .btn-outline-nav { display: none; }
+      .modules-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .roles-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(59,130,246,0.1); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">⚡</div>
+    <div>
+      <div class="nav-logo-text"><span>Haji Yaseen</span> & Sons</div>
+      <div class="nav-logo-sub">Electronics — Enterprise ERP</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a href="#modules">Modules</a>
+    <a href="#ai">AI Features</a>
+    <a href="#roles">Roles</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-cta">
+    <a href="#" class="btn-outline-nav">Login</a>
+    <a href="tel:03034850603" class="btn-primary-nav">📞 0303-4850603</a>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow1"></div>
+  <div class="hero-glow2"></div>
+
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        Enterprise ERP · AI Powered · Multi-Branch
+      </div>
+
+      <h1 class="hero-title">
+        Pakistan Ka<br/>
+        Sab Se Zaroori<br/>
+        <span class="blue-line">Installment ERP</span>
+      </h1>
+
+      <p class="hero-sub">
+        Haji Yaseen & Sons Electronics ka mukammal digital nizam — customers, installments, inventory, accounts, aur AI recovery agent — sab ek jagah, hamesha.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#" class="btn-hero-primary">
+          🚀 Free Demo Shuru Karein
+        </a>
+        <a href="#modules" class="btn-hero-ghost">
+          📋 Modules Dekhein
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="hero-trust-avatars">
+          <div class="hero-trust-avatar">M</div>
+          <div class="hero-trust-avatar">A</div>
+          <div class="hero-trust-avatar">F</div>
+          <div class="hero-trust-avatar">Z</div>
+        </div>
+        <span>17 modules · Multi-branch · Real-time AI alerts</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Floating UI Card -->
+    <div class="hero-visual">
+      <!-- Mini card top-right -->
+      <div class="float-mini float-mini-1">
+        <div class="mini-label">Aaj Ki Recovery</div>
+        <div class="mini-value gold">₨ 2,84,000</div>
+        <div class="mini-sub">↑ 12% vs kal</div>
+      </div>
+
+      <!-- Main card -->
+      <div class="hero-card-main">
+        <div class="card-header">
+          <span class="card-header-title">📄 Installment Account</span>
+          <div class="card-status">
+            <div class="card-status-dot"></div>
+            Active
+          </div>
+        </div>
+
+        <div class="card-customer">
+          <div class="card-avatar">👤</div>
+          <div>
+            <div class="card-name">Muhammad Saleem Khan</div>
+            <div class="card-cnic">CNIC: 3520214-XXXXXXX-1</div>
+          </div>
+        </div>
+
+        <div class="card-product">
+          <div class="card-product-icon">📱</div>
+          <div>
+            <div class="card-product-name">Samsung Galaxy S24 Ultra</div>
+            <div class="card-product-model">Serial: SA24U-7849-PK · Barcode ✓</div>
+          </div>
+        </div>
+
+        <div class="card-amounts">
+          <div class="card-amount-box">
+            <div class="card-amount-label">Total</div>
+            <div class="card-amount-value">₨ 1,85,000</div>
+          </div>
+          <div class="card-amount-box">
+            <div class="card-amount-label">Paid</div>
+            <div class="card-amount-value green">₨ 1,14,700</div>
+          </div>
+          <div class="card-amount-box">
+            <div class="card-amount-label">Baaki</div>
+            <div class="card-amount-value gold">₨ 70,300</div>
+          </div>
+        </div>
+
+        <div class="card-progress-label">
+          <span>Recovery Progress</span>
+          <span>62% Complete</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <!-- Mini card bottom-left -->
+      <div class="float-mini float-mini-2">
+        <div class="mini-label">AI Risk Score</div>
+        <div class="mini-value" style="color:#4ade80">Low ✓</div>
+        <div class="mini-sub">Auto-updated daily</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ STATS ══════════ -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num">17<span class="stat-accent">+</span></div>
+      <div class="stat-label">Enterprise Modules</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100<span class="stat-accent">%</span></div>
+      <div class="stat-label">Cloud Based & Secure</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">13<span class="stat-accent">+</span></div>
+      <div class="stat-label">User Roles & Permissions</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">AI<span class="stat-accent">⚡</span></div>
+      <div class="stat-label">Powered Recovery Agent</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ MODULES ══════════ -->
+<section class="modules-section" id="modules">
+  <div class="section-inner">
+    <div class="section-tag">🗂️ System Modules</div>
+    <h2 class="section-title">Har Kaam Ka Alag Module</h2>
+    <p class="section-sub">Choti dukaan se lekar bari company tak — sab kuch ek hi platform par manage karein.</p>
+
+    <div class="modules-grid">
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(59,130,246,0.1);">👥</div>
+        <div class="module-title">Customer Processing</div>
+        <div class="module-desc">CNIC, photos, guarantor, verification, approval workflow — mukammal customer profile ek jagah.</div>
+        <div class="module-tags">
+          <span class="module-tag">CNIC OCR</span>
+          <span class="module-tag">Geo Location</span>
+          <span class="module-tag">Documents</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(16,185,129,0.1);">💳</div>
+        <div class="module-title">Installment Management</div>
+        <div class="module-desc">Weekly/monthly plans, auto ledger, payment history, late charges, QR receipts — sab automatic.</div>
+        <div class="module-tags">
+          <span class="module-tag">Auto Ledger</span>
+          <span class="module-tag">QR Code</span>
+          <span class="module-tag">Schedule</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(245,158,11,0.1);">📦</div>
+        <div class="module-title">Inventory & Stock</div>
+        <div class="module-desc">Stock in/out, warehouse management, supplier orders, barcode system, aur low stock alerts.</div>
+        <div class="module-tags">
+          <span class="module-tag">Barcode</span>
+          <span class="module-tag">Purchase Orders</span>
+          <span class="module-tag">Warehouse</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(139,92,246,0.1);">🤖</div>
+        <div class="module-title">AI WhatsApp Agent</div>
+        <div class="module-desc">Overdue installments detect karta hai, customer ko WhatsApp reminder bhejta hai, reply samajhta hai, ERP update karta hai.</div>
+        <div class="module-tags">
+          <span class="module-tag">WhatsApp API</span>
+          <span class="module-tag">Auto Follow-up</span>
+          <span class="module-tag">AI Reply</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(239,68,68,0.1);">📊</div>
+        <div class="module-title">Accounts & Finance</div>
+        <div class="module-desc">Cash book, bank book, ledger, P&L, balance sheet, daily/monthly closing — CA-level accounting.</div>
+        <div class="module-tags">
+          <span class="module-tag">P&L</span>
+          <span class="module-tag">Ledger</span>
+          <span class="module-tag">Balance Sheet</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(20,184,166,0.1);">🏍️</div>
+        <div class="module-title">Vehicle Registration</div>
+        <div class="module-desc">Motorcycle aur vehicles ka registration — engine, chassis, insurance, documents sab store karein customer ke saath linked.</div>
+        <div class="module-tags">
+          <span class="module-tag">Chassis No.</span>
+          <span class="module-tag">Insurance</span>
+          <span class="module-tag">RC Document</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(234,179,8,0.1);">👨‍💼</div>
+        <div class="module-title">HR & Payroll</div>
+        <div class="module-desc">Employee records, attendance, salary slip PDF, bonuses, deductions, KPI tracking — full HR module.</div>
+        <div class="module-tags">
+          <span class="module-tag">Attendance</span>
+          <span class="module-tag">Payslip PDF</span>
+          <span class="module-tag">KPI</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(59,130,246,0.1);">🚚</div>
+        <div class="module-title">Product Delivery</div>
+        <div class="module-desc">Delivery QR, GPS location, customer signature, delivery photos, officer tracking — digital delivery confirmation.</div>
+        <div class="module-tags">
+          <span class="module-tag">GPS Track</span>
+          <span class="module-tag">Signature</span>
+          <span class="module-tag">QR Confirm</span>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-icon" style="background:rgba(16,185,129,0.1);">📈</div>
+        <div class="module-title">Reports & Analytics</div>
+        <div class="module-desc">13+ types ke reports — sales, recovery, defaulter, inventory — Excel, PDF, ya print format mein export karein.</div>
+        <div class="module-tags">
+          <span class="module-tag">Excel Export</span>
+          <span class="module-tag">PDF</span>
+          <span class="module-tag">13+ Reports</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ AI FEATURES ══════════ -->
+<section class="ai-section" id="ai">
+  <div class="section-inner">
+    <div class="ai-grid">
+
+      <div>
+        <div class="section-tag">🧠 Artificial Intelligence</div>
+        <h2 class="section-title light">AI Jo Aapka Kaam Khud Kar Le</h2>
+        <p class="section-sub light">Recovery predict kare, risk score calculate kare, defaulters detect kare — aur sab kuch automatically WhatsApp par remind kare.</p>
+
+        <div class="ai-features">
+          <div class="ai-feature">
+            <div class="ai-feature-icon" style="background:rgba(59,130,246,0.15);">📉</div>
+            <div>
+              <div class="ai-feature-title">AI Recovery Prediction</div>
+              <div class="ai-feature-desc">Historical data se predict karta hai kaunsa customer time par payment karega aur kaunsa nahi.</div>
+            </div>
+          </div>
+          <div class="ai-feature">
+            <div class="ai-feature-icon" style="background:rgba(245,158,11,0.15);">⚠️</div>
+            <div>
+              <div class="ai-feature-title">Defaulter Detection</div>
+              <div class="ai-feature-desc">Overdue accounts automatically flag hote hain — recovery officer ko task assign hota hai.</div>
+            </div>
+          </div>
+          <div class="ai-feature">
+            <div class="ai-feature-icon" style="background:rgba(139,92,246,0.15);">💬</div>
+            <div>
+              <div class="ai-feature-title">WhatsApp AI Agent</div>
+              <div class="ai-feature-desc">Customer ke reply samajhta hai, payment confirm karta hai, bank QR code share karta hai.</div>
+            </div>
+          </div>
+          <div class="ai-feature">
+            <div class="ai-feature-icon" style="background:rgba(16,185,129,0.15);">🔍</div>
+            <div>
+              <div class="ai-feature-title">OCR Document Scanner</div>
+              <div class="ai-feature-desc">CNIC aur documents scan karo — AI khud data fill kar deta hai, manual entry nahi.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Risk Visual -->
+      <div class="ai-visual">
+        <div class="ai-visual-title">🧠 AI Customer Risk Dashboard</div>
+
+        <div class="risk-item">
+          <div class="risk-name">Muhammad Saleem</div>
+          <div class="risk-bar-container"><div class="risk-bar low" style="width:18%"></div></div>
+          <div class="risk-score low">Low 18</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-name">Ahsan Raza</div>
+          <div class="risk-bar-container"><div class="risk-bar low" style="width:24%"></div></div>
+          <div class="risk-score low">Low 24</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-name">Farrukh Qureshi</div>
+          <div class="risk-bar-container"><div class="risk-bar med" style="width:58%"></div></div>
+          <div class="risk-score med">Med 58</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-name">Bilal Hussain</div>
+          <div class="risk-bar-container"><div class="risk-bar med" style="width:67%"></div></div>
+          <div class="risk-score med">Med 67</div>
+        </div>
+        <div class="risk-item">
+          <div class="risk-name">Zafar Iqbal</div>
+          <div class="risk-bar-container"><div class="risk-bar high" style="width:84%"></div></div>
+          <div class="risk-score high">High 84</div>
+        </div>
+
+        <div class="ai-alert">
+          <div class="ai-alert-icon">🤖</div>
+          <div class="ai-alert-text">
+            <span class="ai-alert-bold">AI Alert:</span> Zafar Iqbal ka 3 installments overdue hai — WhatsApp reminder auto-send kiya gaya, recovery officer ko task assign hua.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ HOW IT WORKS ══════════ -->
+<section class="how-section">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom: 64px;">
+      <div class="section-tag" style="justify-content:center;">⚙️ Process</div>
+      <h2 class="section-title">Kaam Kaise Karta Hai?</h2>
+      <p class="section-sub" style="margin: 0 auto;">Inquiry se lekar recovery tak — har step digital aur tracked.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-number">1</div>
+        <div class="step-title">Customer Inquiry</div>
+        <div class="step-desc">Customer aata hai, inquiry register hoti hai, marketing officer assign hota hai.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">2</div>
+        <div class="step-title">Verification & Approval</div>
+        <div class="step-desc">Documents scan, CNIC verify, field visit, manager approval — sab digital workflow.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">3</div>
+        <div class="step-title">Installment Setup</div>
+        <div class="step-desc">Down payment, finance amount, schedule set — contract auto-generate, QR code ready.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-number">4</div>
+        <div class="step-title">AI Recovery</div>
+        <div class="step-desc">Due date par AI WhatsApp reminder, payment confirm, ERP auto-update — zero manual follow-up.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ROLES ══════════ -->
+<section class="roles-section" id="roles">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom: 48px;">
+      <div class="section-tag" style="justify-content:center;">👥 User Roles</div>
+      <h2 class="section-title">13 Roles, Har Ek Ke Apne Permissions</h2>
+    </div>
+
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-icon">👑</div>
+        <div class="role-name">Super Admin</div>
+        <div class="role-perm">Full System Access</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🏢</div>
+        <div class="role-name">Director</div>
+        <div class="role-perm">Reports & Oversight</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🏬</div>
+        <div class="role-name">Branch Manager</div>
+        <div class="role-perm">Branch Operations</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📊</div>
+        <div class="role-name">Sales Manager</div>
+        <div class="role-perm">Sales & Targets</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">📣</div>
+        <div class="role-name">Marketing Officer</div>
+        <div class="role-perm">Customer Inquiries</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🤝</div>
+        <div class="role-name">Sales Officer</div>
+        <div class="role-perm">Deals & Contracts</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">💰</div>
+        <div class="role-name">Recovery Officer</div>
+        <div class="role-perm">Installment Collection</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🚚</div>
+        <div class="role-name">Delivery Officer</div>
+        <div class="role-perm">Product Delivery</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRICING ══════════ -->
+<section style="background: var(--white); padding: 100px 5%;" id="pricing">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom: 56px;">
+      <div class="section-tag" style="justify-content:center;">💎 Pricing</div>
+      <h2 class="section-title" style="text-align:center;">Ek Plan — Sab Kuch Included</h2>
+      <p class="section-sub" style="text-align:center; margin: 0 auto;">Koi hidden charges nahi, koi per-user limit nahi — sirf ek simple plan.</p>
+    </div>
+
+    <div style="display:flex; justify-content:center;">
+      <div style="
+        background: var(--navy);
+        border-radius: 28px;
+        padding: 48px 56px;
+        max-width: 560px; width: 100%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 32px 80px rgba(10,22,40,0.25);
+      ">
+        <!-- Glow -->
+        <div style="position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:400px;height:300px;background:radial-gradient(circle,rgba(59,130,246,0.2) 0%,transparent 70%);pointer-events:none;"></div>
+
+        <div style="
+          display:inline-flex; align-items:center; gap:8px;
+          background:rgba(245,158,11,0.15); border:1px solid rgba(245,158,11,0.35);
+          border-radius:100px; padding:6px 18px; margin-bottom:28px;
+          color:var(--gold); font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+        ">⭐ Full Access Plan</div>
+
+        <div style="color:var(--gray400); font-size:14px; margin-bottom:8px;">Monthly Subscription</div>
+        <div style="display:flex; align-items:flex-end; justify-content:center; gap:6px; margin-bottom:6px;">
+          <span style="color:var(--gray500); font-size:22px; font-weight:500; align-self:flex-start; margin-top:10px;">₨</span>
+          <span style="color:var(--white); font-size:72px; font-weight:900; line-height:1; letter-spacing:-0.03em;">10,000</span>
+        </div>
+        <div style="color:var(--gray400); font-size:14px; margin-bottom:36px;">per month — full system access</div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:36px; text-align:left;">
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> 17+ Modules</div>
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> Unlimited Users</div>
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> Multi-Branch</div>
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> AI WhatsApp Agent</div>
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> Cloud Backup</div>
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> HR & Payroll</div>
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> Accounts & Finance</div>
+          <div style="display:flex;gap:8px;align-items:center;color:var(--gray300);font-size:13px;"><span style="color:#4ade80;">✓</span> 24/7 Support</div>
+        </div>
+
+        <a href="tel:03034850603" style="
+          display:block; width:100%;
+          padding:16px 0;
+          background: linear-gradient(135deg, #3B82F6, #1E40AF);
+          color:#fff; font-size:16px; font-weight:800; border-radius:14px;
+          text-decoration:none; transition:all 0.25s;
+          box-shadow: 0 8px 24px rgba(59,130,246,0.4);
+          margin-bottom:14px;
+        ">📞 Abhi Call Karein — 0303-4850603</a>
+
+        <div style="color:var(--gray500); font-size:12px;">Koi contract nahi · Jab chahein band karein</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="cta-badge">⚡ Aaj Hi Shuru Karein</div>
+    <h2 class="cta-title">
+      Apna Business Digitize Karein<br/>
+      Haji Yaseen ERP Ke Saath
+    </h2>
+    <p class="cta-sub">Live demo book karein — hamari team aapko 30 minutes mein pura system dikhayegi.</p>
+    <div class="cta-btns">
+      <a href="#" class="btn-cta-primary">📅 Demo Book Karein</a>
+      <a href="tel:03034850603" class="btn-cta-ghost">📞 Call: 0303-4850603</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name"><span>Haji Yaseen</span> & Sons Electronics</div>
+        <div class="footer-brand-tagline">Pakistan ka enterprise-grade installment ERP — multi-branch, AI-powered, cloud-based.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Modules</div>
+        <ul class="footer-links">
+          <li><a href="#">Customer Processing</a></li>
+          <li><a href="#">Installments</a></li>
+          <li><a href="#">Inventory</a></li>
+          <li><a href="#">AI Recovery</a></li>
+          <li><a href="#">Accounts</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Branches</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">User Manual</a></li>
+          <li><a href="#">Admin Guide</a></li>
+          <li><a href="#">API Docs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <span>Haji Yaseen & Sons Electronics</span>. Tamam Huqooq Mahfooz.</div>
+      <div class="footer-links-bottom">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
